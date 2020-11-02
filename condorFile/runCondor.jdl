@@ -1,0 +1,12 @@
++JobFlavour = "espresso"
+Executable = runCondor.sh
+Universe = vanilla
+Log = out_log/runCondor_$(Cluster)_$(Process).log
+Output = out_log/runCondor_$(Cluster)_$(Process).out
+Error = out_log/runCondor_$(Cluster)_$(Process).err
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files  = codeFile
+x509userproxy = $ENV(X509_USER_PROXY)
+Arguments = -i dataset_single_2016_CN.txt -o dataset_single_2016_CN.root
+Queue

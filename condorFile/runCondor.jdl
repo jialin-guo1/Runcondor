@@ -10,3 +10,6 @@ transfer_input_files  = codeFile
 x509userproxy = $ENV(X509_USER_PROXY)
 Arguments = -i dataset_single_2016_CN.txt -o dataset_single_2016_CN.root
 Queue
+Arguments = -i dataset_single_2016_FLsingleEle.txt -o dataset_single_2016_FLsingleEle.root
+Queue
+Arguments = -i dataset_single_2016_FLSingleMu.txt -o dataset_single_2016_FLSingleMu.root

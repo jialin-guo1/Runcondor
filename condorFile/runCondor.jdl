@@ -1,4 +1,4 @@
-+JobFlavour = "espresso"
++JobFlavour = "nextweek"
 Executable = runCondor.sh
 Universe = vanilla
 Log = out_log/runCondor_$(Cluster)_$(Process).log
@@ -6,11 +6,11 @@ Output = out_log/runCondor_$(Cluster)_$(Process).out
 Error = out_log/runCondor_$(Cluster)_$(Process).err
 should_transfer_files   = YES
 when_to_transfer_output = ON_EXIT
-transfer_input_files  = codeFile
+transfer_input_files  = codeFile, runCondor.sh, datasetfile
 x509userproxy = $ENV(X509_USER_PROXY)
-Arguments = -i dataset_single_2016_CN.txt -o dataset_single_2016_CN.root
+Arguments = -i datasetfile/dataset_single_2016_CN.txt  -o dataset_single_2016_CN.root
 Queue
-Arguments = -i dataset_single_2016_FLsingleEle.txt -o dataset_single_2016_FLsingleEle.root
+Arguments = -i datasetfile/dataset_single_2016_FLsingleEle.txt -o dataset_single_2016_FLsingleEle.root
 Queue
-Arguments = -i dataset_single_2016_FLSingleMu.txt -o dataset_single_2016_FLSingleMu.root
+Arguments = -i datasetfile/dataset_single_2016_FLSingleMu.txt -o dataset_single_2016_FLSingleMu.root
 Queue

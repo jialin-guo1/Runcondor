@@ -6,7 +6,7 @@ Output = out_log/runCN/runCondor_$(Cluster)_$(Process).out
 Error = out_log/run/CN/runCondor_$(Cluster)_$(Process).err
 should_transfer_files   = YES
 when_to_transfer_output = ON_EXIT
-transfer_input_files  = codeFile, runCondor.sh, datasetfile
+transfer_input_files  = codeFile, runCondor_CN.sh, datasetfile
 x509userproxy = $ENV(X509_USER_PROXY)
 Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SinleElectron_Run2016B_2lskim/200609_154650/0000/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN0.root
 Queue

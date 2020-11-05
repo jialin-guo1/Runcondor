@@ -13,7 +13,7 @@ import os
 from array import array
 
 chain = ROOT.TChain(args.ttree)
-for filename in args.inputfiles: chain.Add(filename)
+chain.Add(filename)
 print 'Total number of events: ' + str(tchain.GetEntries())
 
 #variables

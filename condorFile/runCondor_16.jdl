@@ -8,29 +8,29 @@ should_transfer_files   = YES
 when_to_transfer_output = ON_EXIT
 transfer_input_files  = codeFile, runCondor.sh, datasetfile
 x509userproxy = $ENV(X509_USER_PROXY)
-Arguments = -i dataset_signal_2016_FLsingle1.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle1.root
+Arguments = -i datasetfile/dataset_signal_2016_FLsingle1.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle1.root
 Queue
-Arguments = -i dataset_signal_2016_FLsingle2.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle2.root
+Arguments = -i datasetfile/dataset_signal_2016_FLsingle2.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle2.root
 Queue
-Arguments = -i dataset_signal_2016_FLsingle3.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle3.root
+Arguments = -i datasetfile/dataset_signal_2016_FLsingle3.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle3.root
 Queue
-Arguments = -i dataset_signal_2016_FLsingle4.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle4.root
+Arguments = -i datasetfile/dataset_signal_2016_FLsingle4.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle4.root
 Queue
-Arguments = -i dataset_signal_2016_FLsingle5.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle5.root
+Arguments = -i datasetfile/dataset_signal_2016_FLsingle5.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle5.root
 Queue
-Arguments = -i dataset_signal_2016_FLsingle6.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle6.root
+Arguments = -i datasetfile/dataset_signal_2016_FLsingle6.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle6.root
 Queue
-Arguments = -i dataset_signal_2016_FLsingle7.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle7.root
+Arguments = -i datasetfile/dataset_signal_2016_FLsingle7.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle7.root
 Queue
-Arguments = -i dataset_signal_2016_FLsingle8.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle8.root
+Arguments = -i datasetfile/dataset_signal_2016_FLsingle8.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle8.root
 Queue
-Arguments = -i dataset_signal_2016_FLsingle9.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle9.root
+Arguments = -i datasetfile/dataset_signal_2016_FLsingle9.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle9.root
 Queue
-Arguments = -i dataset_signal_2016_FLsingle10.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle10.root
+Arguments = -i datasetfile/dataset_signal_2016_FLsingle10.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle10.root
 Queue
-Arguments = -i dataset_signal_2016_FLsingle11.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle11.root
+Arguments = -i datasetfile/dataset_signal_2016_FLsingle11.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle11.root
 Queue
-Arguments = -i dataset_signal_2016_FLsingle12.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle12.root
+Arguments = -i datasetfile/dataset_signal_2016_FLsingle12.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle12.root
 Queue
-Arguments = -i dataset_signal_2016_FLsingle13.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle13.root
+Arguments = -i datasetfile/dataset_signal_2016_FLsingle13.txt -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_FLsingle13.root
 Queue

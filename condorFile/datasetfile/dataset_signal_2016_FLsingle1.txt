@@ -1,0 +1,1 @@
+root://cms-xrd-global.cern.ch//store/user/ferrico/2018data/UFHZZAnalysisRun2/myTask_Data/SingleElectron/crab_SingleElectron_Run2016B-17Jul2018_ver2-v1/190923_132016/0000/*.root

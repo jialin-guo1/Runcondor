@@ -1,9 +1,9 @@
 +JobFlavour = "nextweek"
 Executable = runCondor.sh
 Universe = vanilla
-Log = out_log/runCondor_$(Cluster)_$(Process).log
-Output = out_log/runCondor_$(Cluster)_$(Process).out
-Error = out_log/runCondor_$(Cluster)_$(Process).err
+Log = out_log/runCN/runCondor_$(Cluster)_$(Process).log
+Output = out_log/runCN/runCondor_$(Cluster)_$(Process).out
+Error = out_log/run/CN/runCondor_$(Cluster)_$(Process).err
 should_transfer_files   = YES
 when_to_transfer_output = ON_EXIT
 transfer_input_files  = codeFile, runCondor.sh, datasetfile

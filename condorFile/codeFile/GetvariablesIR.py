@@ -109,8 +109,8 @@ for ievent,event in enumerate(chain):
 
     lep_4mass[0] = event.mass4l
     lepnoFSR_4mass[0] = event.mass4l_noFSR
-    ledZ_mass = event.massZ1
-    subledZ_mass = event.massZ2
+    ledZ_mass[0] = event.massZ1
+    subledZ_mass[0] = event.massZ2
 
     Nlep = event.lep_pt.size()
     for i in range(Nlep):

@@ -49,6 +49,10 @@ lep4FSR_pt = array('f',[0.])
 lep4FSR_eta = array('f',[0.])
 lep4FSR_phi = array('f',[0.])
 lep4FSR_mass = array('f',[0.])
+lep_4mass = array('f',[0.])
+lepnoFSR_4mass = array('f',[0])
+ledZ_mass = array('f',[0])
+subledZ_mass  = array('f',[0])
 h_pt = array('f',[0.])
 h_eta = array('f',[0.])
 h_phi = array('f',[0.])
@@ -93,11 +97,21 @@ passedEvents.Branch("h_pt",h_pt,"h_pt/F")
 passedEvents.Branch("h_eta",h_eta,"h_eta/F")
 passedEvents.Branch("h_phi",h_phi,"h_phi/F")
 passedEvents.Branch("h_mass",h_mass,"h_mass/F")
+passedEvents.Branch("lep_4mass",lep_4mass,"lep_4mass/F")
+passedEvents.Branch("lepnoFSR_4mass",lepnoFSR_4mass,"lepnoFSR_4mass/F")
+passedEvents.Branch("ledZ_mass",ledZ_mass,"ledZ_mass/F")
+passedEvents.Branch("subledZ_mass",subledZ_mass,"subledZ_mass/F")
 
 #Loop over all the events in the input ntuple
 for ievent,event in enumerate(chain):
     if(not event.passedTrig): continue
     if(not event.passedFullSelection): continue
+
+    lep_4mass[0] = event.mass4l
+    lepnoFSR_4mass[0] = event.mass4l_noFSR
+    ledZ_mass = massZ1
+    subledZ_mass = massZ2
+
     Nlep = event.lep_pt.size()
     for i in range(Nlep):
 

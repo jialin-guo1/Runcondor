@@ -170,7 +170,9 @@ for ievent,event in enumerate(chain):
        l2.SetPtEtaPhiM(event.lep_pt[event.lep_Hindex[0]],event.lep_eta[event.lep_Hindex[0]],event.lep_phi[event.lep_Hindex[0]],event.lep_mass[event.lep_Hindex[0]])
        l3.SetPtEtaPhiM(event.lep_pt[event.lep_Hindex[0]],event.lep_eta[event.lep_Hindex[0]],event.lep_phi[event.lep_Hindex[0]],event.lep_mass[event.lep_Hindex[0]])
        l4.SetPtEtaPhiM(event.lep_pt[event.lep_Hindex[0]],event.lep_eta[event.lep_Hindex[0]],event.lep_phi[event.lep_Hindex[0]],event.lep_mass[event.lep_Hindex[0]])
-       H[0] = (l1+l2+l3+l4).M()
+       H4mass = ROOT.TLorentzVector()
+       H4mass = l1+l2+l3+l4
+       H[0] = H4mass.M()
 
        l1FSR = ROOT.TLorentzVector()
        l2FSR = ROOT.TLorentzVector()
@@ -180,7 +182,9 @@ for ievent,event in enumerate(chain):
        l2FSR.SetPtEtaPhiM(event.lepFSR_pt[event.lep_Hindex[1]],event.lepFSR_eta[event.lep_Hindex[1]],event.lepFSR_phi[event.lep_Hindex[1]],event.lepFSR_mass[event.lep_Hindex[1]])
        l3FSR.SetPtEtaPhiM(event.lepFSR_pt[event.lep_Hindex[2]],event.lepFSR_eta[event.lep_Hindex[2]],event.lepFSR_phi[event.lep_Hindex[2]],event.lepFSR_mass[event.lep_Hindex[2]])
        l4FSR.SetPtEtaPhiM(event.lepFSR_pt[event.lep_Hindex[3]],event.lepFSR_eta[event.lep_Hindex[3]],event.lepFSR_phi[event.lep_Hindex[3]],event.lepFSR_mass[event.lep_Hindex[3]])
-       H_FSR[0] = (l1FSR+l2FSR+l3FSR+l4FSR).M()
+       H4massFSR = ROOT.TLorentzVector()
+       H4massFSR = l1FSR+l2FSR+l3FSR+l4FSR
+       H_FSR[0] = H4massFSR.M()
 
 
 

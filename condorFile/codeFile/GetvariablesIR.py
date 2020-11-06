@@ -189,7 +189,7 @@ for ievent,event in enumerate(chain):
 
 
     Hhiggs = event.H_pt.size()
-    for i in range(Hhiggs)
+    for i in range(Hhiggs):
         h_pt[0] = event.H_pt[i]
         h_eta[0] =event.H_eta[i]
         h_phi[0] = event.H_phi[i]

@@ -1,5 +1,5 @@
 +JobFlavour = "nextweek"
-Executable = runCondor.sh
+Executable = runCondor_CN.sh
 Universe = vanilla
 Log = out_log/runCN/runCondor_$(Cluster)_$(Process).log
 Output = out_log/runCN/runCondor_$(Cluster)_$(Process).out

@@ -57,6 +57,8 @@ h_pt = array('f',[0.])
 h_eta = array('f',[0.])
 h_phi = array('f',[0.])
 h_mass = array('f',[0.])
+H = array('f',[0])
+H_FSR = array('f',[0])
 
 #Output file and any Branch we want
 file_out = ROOT.TFile(args.outputfile, 'recreate')
@@ -101,6 +103,8 @@ passedEvents.Branch("lep_4mass",lep_4mass,"lep_4mass/F")
 passedEvents.Branch("lepnoFSR_4mass",lepnoFSR_4mass,"lepnoFSR_4mass/F")
 passedEvents.Branch("ledZ_mass",ledZ_mass,"ledZ_mass/F")
 passedEvents.Branch("subledZ_mass",subledZ_mass,"subledZ_mass/F")
+passedEvents.Branch("H",H,"H/F")
+passedEvents.Branch("H_FSR",H_FSR,"H_FSR/F")
 
 #Loop over all the events in the input ntuple
 for ievent,event in enumerate(chain):
@@ -158,8 +162,30 @@ for ievent,event in enumerate(chain):
        lep4FSR_phi[0] = event.lepFSR_phi[event.lep_Hindex[3]]
        lep4FSR_mass[0] = event.lepFSR_mass[event.lep_Hindex[3]]
 
+       l1 = ROOT.TLorentzVector()
+       l2 = ROOT.TLorentzVector()
+       l3 = ROOT.TLorentzVector()
+       l4 = ROOT.TLorentzVector()
+       l1.SetPtEtaPhiM(event.lep_pt[event.lep_Hindex[0]],event.lep_eta[event.lep_Hindex[0]],event.lep_phi[event.lep_Hindex[0]],event.lep_mass[event.lep_Hindex[0]])
+       l2.SetPtEtaPhiM(event.lep_pt[event.lep_Hindex[0]],event.lep_eta[event.lep_Hindex[0]],event.lep_phi[event.lep_Hindex[0]],event.lep_mass[event.lep_Hindex[0]])
+       l3.SetPtEtaPhiM(event.lep_pt[event.lep_Hindex[0]],event.lep_eta[event.lep_Hindex[0]],event.lep_phi[event.lep_Hindex[0]],event.lep_mass[event.lep_Hindex[0]])
+       l4.SetPtEtaPhiM(event.lep_pt[event.lep_Hindex[0]],event.lep_eta[event.lep_Hindex[0]],event.lep_phi[event.lep_Hindex[0]],event.lep_mass[event.lep_Hindex[0]])
+       H[0] = (l1+l2+l3+l4).M()
+
+       l1FSR = ROOT.TLorentzVector()
+       l2FSR = ROOT.TLorentzVector()
+       l3FSR = ROOT.TLorentzVector()
+       l4FSR = ROOT.TLorentzVector()
+       l1FSR.SetPtEtaPhiM(event.lepFSR_pt[event.lep_Hindex[0]],event.lepFSR_eta[event.lep_Hindex[0]],event.lepFSR_phi[event.lep_Hindex[0]],event.lepFSR_mass[event.lep_Hindex[0]])
+       l2FSR.SetPtEtaPhiM(event.lepFSR_pt[event.lep_Hindex[1]],event.lepFSR_eta[event.lep_Hindex[1]],event.lepFSR_phi[event.lep_Hindex[1]],event.lepFSR_mass[event.lep_Hindex[1]])
+       l3FSR.SetPtEtaPhiM(event.lepFSR_pt[event.lep_Hindex[2]],event.lepFSR_eta[event.lep_Hindex[2]],event.lepFSR_phi[event.lep_Hindex[2]],event.lepFSR_mass[event.lep_Hindex[2]])
+       l4FSR.SetPtEtaPhiM(event.lepFSR_pt[event.lep_Hindex[3]],event.lepFSR_eta[event.lep_Hindex[3]],event.lepFSR_phi[event.lep_Hindex[3]],event.lepFSR_mass[event.lep_Hindex[3]])
+       H_FSR[0] = (l1FSR+l2FSR+l3FSR+l4FSR).M()
+
+
+
     Hhiggs = event.H_pt.size()
-    for i in range(Hhiggs):
+    for i in range(Hhiggs)
         h_pt[0] = event.H_pt[i]
         h_eta[0] =event.H_eta[i]
         h_phi[0] = event.H_phi[i]

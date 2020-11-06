@@ -13,8 +13,8 @@ import os
 from array import array
 
 chain = ROOT.TChain(args.ttree)
-chain.Add(filename)
-print 'Total number of events: ' + str(tchain.GetEntries())
+chain.Add(args.inputfiles)
+print 'Total number of events: ' + str(chain.GetEntries())
 
 #variables
 lep1_pt = array('f',[0.])

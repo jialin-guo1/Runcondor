@@ -57,8 +57,10 @@ h_pt = array('f',[0.])
 h_eta = array('f',[0.])
 h_phi = array('f',[0.])
 h_mass = array('f',[0.])
-H = array('f',[0])
-H_FSR = array('f',[0])
+H = array('f',[0.])
+H_FSR = array('f',[0.])
+weight = array('f',[0.]
+EMCweight = array('f',[0])
 
 #Output file and any Branch we want
 file_out = ROOT.TFile(args.outputfile, 'recreate')
@@ -105,6 +107,8 @@ passedEvents.Branch("ledZ_mass",ledZ_mass,"ledZ_mass/F")
 passedEvents.Branch("subledZ_mass",subledZ_mass,"subledZ_mass/F")
 passedEvents.Branch("H",H,"H/F")
 passedEvents.Branch("H_FSR",H_FSR,"H_FSR/F")
+passedEvents.Branch("weight",weight,"weight/F")
+passedEvents.Branch("EMCweight",EMCweight,"EMCweight/F")
 
 #Loop over all the events in the input ntuple
 for ievent,event in enumerate(chain):
@@ -115,6 +119,9 @@ for ievent,event in enumerate(chain):
     lepnoFSR_4mass[0] = event.mass4l_noFSR
     ledZ_mass[0] = event.massZ1
     subledZ_mass[0] = event.massZ2
+    weight = event.eventWeight
+    EMCweight = event.dataMCWeight
+
 
     Nlep = event.lep_pt.size()
     for i in range(Nlep):

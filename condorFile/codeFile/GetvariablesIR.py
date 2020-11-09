@@ -60,7 +60,7 @@ h_mass = array('f',[0.])
 H = array('f',[0.])
 H_FSR = array('f',[0.])
 EMCweight = array('f',[0.0])
-weight = array('f',[0.]
+weight = array('f',[0.])
 
 
 #Output file and any Branch we want

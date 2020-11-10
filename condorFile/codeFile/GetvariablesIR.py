@@ -27,6 +27,7 @@ outputfile = os.popen('xrdfs root://cmsio5.rc.ufl.edu/ ls  '+str(args.inputfiles
 for line in outputfile:
     if(ifROOT(line)==False):
         continue
+    line=line.strip('\n')
     files = ROOT.TFile("root://cms-xrd-global.cern.ch/"+line)
     Nevent = files.Ana.Get('nEvents')
     SumW = files.Ana.Get('sumWeights')

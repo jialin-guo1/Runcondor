@@ -120,8 +120,8 @@ for ievent,event in enumerate(chain):
     lepnoFSR_4mass[0] = event.mass4l_noFSR
     ledZ_mass[0] = event.massZ1
     subledZ_mass[0] = event.massZ2
-    weight = event.eventWeight
-    EMCweight = event.dataMCWeight
+    weight[0] = event.eventWeight
+    EMCweight[0] = event.dataMCWeight
 
 
     Nlep = event.lep_pt.size()

@@ -15,6 +15,15 @@ chain = ROOT.TChain(args.ttree)
 chain.Add("root://cms-xrd-global.cern.ch/"+args.inputfiles+"/*.root")
 print 'Total number of events: ' + str(chain.GetEntries())
 
+#get nevent
+Nevent = 0
+SumW = 0
+SumWPU = 0
+NV = 0
+NV_ReW = 0
+NInter = 0
+NInter_ReW = 0
+
 import os
 def ifROOT(line):
     line=line.strip('\n')
@@ -28,13 +37,27 @@ for line in outputfile:
         continue
     line=line.strip('\n')
     files = ROOT.TFile("root://cms-xrd-global.cern.ch/"+line)
-    Nevent = files.Ana.Get('nEvents')
-    SumW = files.Ana.Get('sumWeights')
-    SumWPU = files.Ana.Get('sumWeightsPU')
-    NV = files.Ana.Get('nVtx')
-    NV_ReW = files.Ana.Get('nVtx_ReWeighted')
-    NInter = files.Ana.Get('nInteractions')
-    NInter_ReW = files.Ana.Get('nInteraction_ReWeighted')
+
+    Nevent_h = files.Ana.Get('nEvents')
+    Nevent += Nevent_h.GetBinContent(1)
+
+    SumW_h = files.Ana.Get('sumWeights')
+    SumW += SumW_h.GetBinContent(1)
+
+    SumWPU_h = files.Ana.Get('sumWeightsPU')
+    SumWPU += SumWPU_h.GetBinContent(1)
+
+    NV_h = files.Ana.Get('nVtx')
+    NV +=  NV_h.GetBinContent(1)
+
+    NV_ReW_h = files.Ana.Get('nVtx_ReWeighted')
+    NV_ReW += NV_ReW_h.GetBinContent(1)
+
+    NInter_h = files.Ana.Get('nInteractions')
+    NInter += NInter_h.GetBinContent(1)
+
+    NInter_ReW_h = files.Ana.Get('nInteraction_ReWeighted')
+    NInter_ReW += NInter_ReW_h.GetBinContent(1)
 
 #variables
 lep1_pt = array('f',[0.])

@@ -16,7 +16,11 @@ chain = ROOT.TChain(args.ttree)
 chain.Add(args.inputfiles)
 print 'Total number of events: ' + str(chain.GetEntries())
 
-for fliename in args.inputfiles:
+import commands
+
+file = commands.getstatusoutput('ls ')
+print file
+for fliename in file:
     files = ROOT.TFile(filename)
     Nevent = files.Ana.Get('nEvents')
     SumW = files.Ana.Get('sumWeights')

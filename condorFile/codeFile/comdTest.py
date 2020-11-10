@@ -5,6 +5,6 @@ parser = argparse.ArgumentParser(description="A simple ttree plotter")
 parser.add_argument("-i", "--inputfiles", dest="inputfiles", default="Sync_1031_2018_ttH_v2.root", help="List of input files")
 args = parser.parse_args()
 
-file = commands.getstatusoutput('ls'+str(args.inputfiles))
-for filename file:
+file = commands.getstatusoutput('ls '+str(args.inputfiles))
+for filename in file:
     print "filename="+str(filename)

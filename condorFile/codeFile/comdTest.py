@@ -8,8 +8,8 @@ args = parser.parse_args()
 
 def ifROOT(line):
     print line[-3:]
-    if line[-3:] == [l,o,g]:
-        return False
+#    if line[-3:] == [l,o,g]:
+#        return False
 
 outputfile = os.popen('xrdfs root://cmsio5.rc.ufl.edu/ ls  '+str(args.inputfiles))
 for line in outputfile:

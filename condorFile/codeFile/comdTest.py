@@ -7,8 +7,8 @@ parser.add_argument("-i", "--inputfiles", dest="inputfiles", default="Sync_1031_
 args = parser.parse_args()
 
 def ifROOT(line):
-    print line(-3:)
-    if line(-3:) == log:
+    print line[-3:]
+    if line[-3:] == [l,o,g]:
         return False
 
 outputfile = os.popen('xrdfs root://cmsio5.rc.ufl.edu/ ls  '+str(args.inputfiles))

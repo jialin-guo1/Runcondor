@@ -43,32 +43,26 @@ for line in outputfile:
 
     Nevent_h = files.Ana.Get('nEvents')
     Nevent += Nevent_h.GetBinContent(1)
-    Nevent_h.Write()
 
     SumW_h = files.Ana.Get('sumWeights')
     SumW += SumW_h.GetBinContent(1)
-    SumW_h.Write()
 
     SumWPU_h = files.Ana.Get('sumWeightsPU')
     SumWPU += SumWPU_h.GetBinContent(1)
-    SumWPU_h.Write()
 
     NV_h = files.Ana.Get('nVtx')
     NV +=  NV_h.GetBinContent(1)
-    NV_h.Write()
 
 
     NV_ReW_h = files.Ana.Get('nVtx_ReWeighted')
     NV_ReW += NV_ReW_h.GetBinContent(1)
-    NV_ReW_h.Write()
 
     NInter_h = files.Ana.Get('nInteractions')
     NInter += NInter_h.GetBinContent(1)
-    NInter_h.Write()
-
+    
     NInter_ReW_h = files.Ana.Get('nInteraction_ReWeighted')
     NInter_ReW += NInter_ReW_h.GetBinContent(1)
-    NInter_ReW_h.Write()
+
 
 #variables
 lep1_pt = array('f',[0.])

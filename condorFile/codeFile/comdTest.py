@@ -8,7 +8,7 @@ args = parser.parse_args()
 
 def ifROOT(line):
     line=line.strip('\n')
-    print line[-3:]
+#    print line[-3:]
     if line[-3:] == "log":
         return False
 

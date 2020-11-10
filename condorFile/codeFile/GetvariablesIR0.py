@@ -11,11 +11,13 @@ import numpy as np
 import ROOT
 from array import array
 
-file_out = ROOT.TFile(args.outputfile, 'recreate')
+
 
 chain = ROOT.TChain(args.ttree)
 chain.Add(args.inputfiles+"/*.root")
 print 'Total number of events: ' + str(chain.GetEntries())
+
+file_out = ROOT.TFile(args.outputfile, 'recreate')
 
 #get nevent
 Nevent = 0
@@ -59,7 +61,7 @@ for line in outputfile:
 
     NInter_h = files.Ana.Get('nInteractions')
     NInter += NInter_h.GetBinContent(1)
-    
+
     NInter_ReW_h = files.Ana.Get('nInteraction_ReWeighted')
     NInter_ReW += NInter_ReW_h.GetBinContent(1)
 

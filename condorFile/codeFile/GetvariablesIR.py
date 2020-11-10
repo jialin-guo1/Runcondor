@@ -13,16 +13,21 @@ import os
 from array import array
 
 chain = ROOT.TChain(args.ttree)
-chain.Add(args.inputfiles)
+chain.Add("root://cms-xrd-global.cern.ch/"+args.inputfiles+"/*.root")
 print 'Total number of events: ' + str(chain.GetEntries())
 
-#import commands
+import os
+def ifROOT(line):
+    line=line.strip('\n')
+    if line[-4:] != "root":
+        return False
 
-#file = commands.getstatusoutput('ls ')
-#print file
-for fliename in args.inputfiles:
-    print "find file = "+str(fliename)
-    files = ROOT.TFile(filename)
+outputfile = os.popen('xrdfs root://cmsio5.rc.ufl.edu/ ls  '+str(args.inputfiles))
+
+for line in outputfile:
+    if(ifROOT(line)==False):
+        continue
+    files = ROOT.TFile("root://cms-xrd-global.cern.ch/"+line)
     Nevent = files.Ana.Get('nEvents')
     SumW = files.Ana.Get('sumWeights')
     SumWPU = files.Ana.Get('sumWeightsPU')

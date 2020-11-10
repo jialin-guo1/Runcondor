@@ -5,6 +5,6 @@ parser = argparse.ArgumentParser(description="A simple ttree plotter")
 parser.add_argument("-i", "--inputfiles", dest="inputfiles", default="Sync_1031_2018_ttH_v2.root", help="List of input files")
 args = parser.parse_args()
 
-file = commands.getstatusoutput('xrdfs root://cmsio5.rc.ufl.edu/ ls  '+str(args.inputfiles))
-for filename in file:
+status, outputfile = commands.getstatusoutput(cmd)('xrdfs root://cmsio5.rc.ufl.edu/ ls  '+str(args.inputfiles))
+for filename in outputfie:
     print "filename="+str(filename)

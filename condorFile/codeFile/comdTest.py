@@ -7,6 +7,7 @@ parser.add_argument("-i", "--inputfiles", dest="inputfiles", default="Sync_1031_
 args = parser.parse_args()
 
 def ifROOT(line):
+    line=line.strip('\n')
     print line[-3:]
 #    if line[-3:] == [l,o,g]:
 #        return False

@@ -9,7 +9,6 @@ args = parser.parse_args()
 
 import numpy as np
 import ROOT
-import os
 from array import array
 
 chain = ROOT.TChain(args.ttree)

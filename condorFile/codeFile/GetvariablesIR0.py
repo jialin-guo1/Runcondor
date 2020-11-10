@@ -37,7 +37,7 @@ for line in outputfile:
         continue
     line=line.strip('\n')
     print "filename="+str(line)
-    files = ROOT.TFile(line)
+    files = ROOT.TFile("/afs/cern.ch/work/g/guoj/XToZZ_FullRunII/"+str(line))
 
     Nevent_h = files.Ana.Get('nEvents')
     Nevent += Nevent_h.GetBinContent(1)

@@ -6,5 +6,5 @@ parser.add_argument("-i", "--inputfiles", dest="inputfiles", default="Sync_1031_
 args = parser.parse_args()
 
 status, outputfile = commands.getstatusoutput('xrdfs root://cmsio5.rc.ufl.edu/ ls  '+str(args.inputfiles))
-for filename in outputfie:
+for filename in outputfile:
     print "filename="+str(filename)

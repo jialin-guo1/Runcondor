@@ -34,9 +34,9 @@ def ifROOT(line):
     if line[-4:] != "root":
         return False
 
-outputfile = os.popen('ls '+str(args.inputfiles))
+outfile = os.popen('ls '+str(args.inputfiles))
 
-for line in outputfile:
+for line in outfile:
     if(ifROOT(line)==False):
         continue
     line=line.strip('\n')

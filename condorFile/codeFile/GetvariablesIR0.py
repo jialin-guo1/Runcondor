@@ -17,7 +17,6 @@ chain = ROOT.TChain(args.ttree)
 chain.Add(args.inputfiles+"/*.root")
 print 'Total number of events: ' + str(chain.GetEntries())
 
-file_out = ROOT.TFile(args.outputfile, 'recreate')
 
 #get nevent
 Nevent = 0
@@ -114,6 +113,7 @@ weight = array('f',[0.])
 
 
 #Output file and any Branch we want
+file_out = ROOT.TFile(args.outputfile, 'recreate')
 passedEvents = ROOT.TTree("passedEvents","passedEvents")
 passedEvents.Branch("lep1_pt",lep1_pt,"lep1_pt/F")
 passedEvents.Branch("lep1_eta",lep1_eta,"lep1_eta/F")

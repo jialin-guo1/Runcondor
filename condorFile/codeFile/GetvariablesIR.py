@@ -21,6 +21,7 @@ print 'Total number of events: ' + str(chain.GetEntries())
 #file = commands.getstatusoutput('ls ')
 #print file
 for fliename in args.inputfiles:
+    print "find file = "+str(fliename)
     files = ROOT.TFile(filename)
     Nevent = files.Ana.Get('nEvents')
     SumW = files.Ana.Get('sumWeights')

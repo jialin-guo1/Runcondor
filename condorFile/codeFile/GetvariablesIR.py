@@ -16,6 +16,16 @@ chain = ROOT.TChain(args.ttree)
 chain.Add(args.inputfiles)
 print 'Total number of events: ' + str(chain.GetEntries())
 
+for fliename in args.inputfiles:
+    files = ROOT.TFile(filename)
+    Nevent = files.Ana.Get('nEvents')
+    SumW = files.Ana.Get('sumWeights')
+    SumWPU = files.Ana.Get('sumWeightsPU')
+    NV = files.Ana.Get('nVtx')
+    NV_ReW = files.Ana.Get('nVtx_ReWeighted')
+    NInter = files.Ana.Get('nInteractions')
+    NInter_ReW = files.Ana.Get('nInteraction_ReWeighted')
+
 #variables
 lep1_pt = array('f',[0.])
 lep1_eta = array('f',[0.])

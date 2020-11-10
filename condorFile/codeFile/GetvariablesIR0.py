@@ -36,6 +36,7 @@ for line in outputfile:
     if(ifROOT(line)==False):
         continue
     line=line.strip('\n')
+    print "filename="+str(line)
     files = ROOT.TFile(line)
 
     Nevent_h = files.Ana.Get('nEvents')

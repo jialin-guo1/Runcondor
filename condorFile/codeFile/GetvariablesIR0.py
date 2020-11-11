@@ -11,21 +11,12 @@ import numpy as np
 import ROOT
 from array import array
 
-
-
 chain = ROOT.TChain(args.ttree)
-chain.Add(args.inputfiles+"/*.root")
-print 'Total number of events: ' + str(chain.GetEntries())
-
+#chain.Add("root://cms-xrd-global.cern.ch/"+args.inputfiles+"/*.root")
+#print 'Total number of events: ' + str(chain.GetEntries())
 
 #get nevent
-Nevent = 0
 SumW = 0
-SumWPU = 0
-NV = 0
-NV_ReW = 0
-NInter = 0
-NInter_ReW = 0
 
 import os
 def ifROOT(line):
@@ -33,37 +24,39 @@ def ifROOT(line):
     if line[-4:] != "root":
         return False
 
-outfile = os.popen('ls '+str(args.inputfiles))
+outputfile = os.popen('xrdfs root://cms-xrd-global.cern.ch/ ls  '+str(args.inputfiles))
 
-for line in outfile:
+for line in outputfile:
     if(ifROOT(line)==False):
         continue
     line=line.strip('\n')
-    print "filename="+str(line)
-    files = ROOT.TFile("/afs/cern.ch/work/g/guoj/XToZZ_FullRunII/"+str(line))
+    filename = "root://cms-xrd-global.cern.ch/"+str(line)
+    chain.Add(filename)
+    print "chain "+filename+" file!"
+    files = ROOT.TFile.Open(filename)
 
-    Nevent_h = files.Ana.Get('nEvents')
-    Nevent += Nevent_h.GetBinContent(1)
+#    Nevent_h = files.Ana.Get('nEvents')
+#    Nevent += Nevent_h.GetBinContent(1)
 
     SumW_h = files.Ana.Get('sumWeights')
     SumW += SumW_h.GetBinContent(1)
 
-    SumWPU_h = files.Ana.Get('sumWeightsPU')
-    SumWPU += SumWPU_h.GetBinContent(1)
+print 'Total number of events: ' + str(chain.GetEntries())
+print "Total Nevent = "+str(SumW)
+#    SumWPU_h = files.Ana.Get('sumWeightsPU')
+#    SumWPU += SumWPU_h.GetBinContent(1)
 
-    NV_h = files.Ana.Get('nVtx')
-    NV +=  NV_h.GetBinContent(1)
+#    NV_h = files.Ana.Get('nVtx')
+#    NV +=  NV_h.GetBinContent(1)
 
+#    NV_ReW_h = files.Ana.Get('nVtx_ReWeighted')
+#    NV_ReW += NV_ReW_h.GetBinContent(1)
 
-    NV_ReW_h = files.Ana.Get('nVtx_ReWeighted')
-    NV_ReW += NV_ReW_h.GetBinContent(1)
+#    NInter_h = files.Ana.Get('nInteractions')
+#    NInter += NInter_h.GetBinContent(1)
 
-    NInter_h = files.Ana.Get('nInteractions')
-    NInter += NInter_h.GetBinContent(1)
-
-    NInter_ReW_h = files.Ana.Get('nInteraction_ReWeighted')
-    NInter_ReW += NInter_ReW_h.GetBinContent(1)
-
+#    NInter_ReW_h = files.Ana.Get('nInteraction_ReWeighted')
+#    NInter_ReW += NInter_ReW_h.GetBinContent(1)
 
 #variables
 lep1_pt = array('f',[0.])
@@ -169,8 +162,8 @@ for ievent,event in enumerate(chain):
     lepnoFSR_4mass[0] = event.mass4l_noFSR
     ledZ_mass[0] = event.massZ1
     subledZ_mass[0] = event.massZ2
-    weight[0] = event.eventWeight/Nevent
-    EMCweight[0] = event.dataMCWeight/Nevent
+    weight[0] = event.eventWeight/SumW
+    EMCweight[0] = event.dataMCWeight/SumW
 
 
     Nlep = event.lep_pt.size()

@@ -32,7 +32,7 @@ for line in outputfile:
     chain.Add(filename)
     print "chain "+filename+" file!"
     files = ROOT.TFile.Open(filename)
-    Nevent_h = files.Ana.Get('nEvents')
+    Nevent_h = files.Ana.Get('sumWeights')
     Nevent += Nevent_h.GetBinContent(1)
     print "root://cms-xrd-global.cern.ch/"+line
 

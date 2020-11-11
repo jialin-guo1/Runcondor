@@ -35,9 +35,10 @@ for line in outputfile:
     files = ROOT.TFile.Open(filename)
     Nevent_h = files.Ana.Get('nEvents')
     Nevent += Nevent_h.GetBinContent(1)
-    Nevent_h.Sumw2()
-    Nevent_h.Add(Nevent_h)
-    Nevent_h.Write()
+    Nevent_H = ROOT.TH1D()
+    Nevent_H.Sumw2()
+    Nevent_H.Add(Nevent_h)
+    Nevent_H.Write(file_out)
     print "root://cms-xrd-global.cern.ch/"+line
 
 print 'Total number of events: ' + str(chain.GetEntries())

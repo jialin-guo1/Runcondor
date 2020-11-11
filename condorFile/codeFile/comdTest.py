@@ -8,9 +8,9 @@ parser.add_argument("-t", "--ttree", dest="ttree", default="Ana/passedEvents", h
 parser.add_argument("-o", "--outputfile", dest="outputfile", default="plots.root", help="Output file containing plots")
 args = parser.parse_args()
 
-file_out = ROOT.TFile(args.outputfile, 'recreate')
 
 import ROOT
+file_out = ROOT.TFile(args.outputfile, 'recreate')
 chain = ROOT.TChain(args.ttree)
 #dataset = "root://cms-xrd-global.cern.ch/"+args.inputfiles+"/*.root"
 #print dataset

@@ -22,6 +22,8 @@ def ifROOT(line):
     if line[-4:] != "root":
         return False
 
+Nevent = 0
+
 outputfile = os.popen('xrdfs root://cmsio5.rc.ufl.edu/ ls  '+str(args.inputfiles))
 for line in outputfile:
     if(ifROOT(line)==False):
@@ -29,13 +31,18 @@ for line in outputfile:
     line=line.strip('\n')
     filename = "root://cms-xrd-global.cern.ch/"+str(line)
     chain.Add(filename)
+    print "chain "+filename+" file!"
     files = ROOT.TFile.Open(filename)
     Nevent_h = files.Ana.Get('nEvents')
+    Nevent += Nevent_h.GetBinContent(1)
+    Nevent_h.Sumw2()
+    Nevent_h.Add(Nevent_h)
     Nevent_h.Write()
     print "root://cms-xrd-global.cern.ch/"+line
 
 print 'Total number of events: ' + str(chain.GetEntries())
 print Nevent_h.GetBinContent(1)
+print "Total Nevent = "+str(Nevent)
 
 file_out.Write()
 file_out.Close()

@@ -38,7 +38,7 @@ for line in outputfile:
     Nevent_H = ROOT.TH1D()
     Nevent_H.Sumw2()
     Nevent_H.Add(Nevent_h)
-    Nevent_H.Write(file_out)
+    Nevent_H.Write(args.outputfile)
     print "root://cms-xrd-global.cern.ch/"+line
 
 print 'Total number of events: ' + str(chain.GetEntries())

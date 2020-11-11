@@ -34,12 +34,11 @@ for line in outputfile:
     chain.Add(filename)
     print "chain "+filename+" file!"
     files = ROOT.TFile.Open(filename)
+    SumW_h = files.Ana.Get('sumWeights')
+    SumW += SumW_h.GetBinContent(1)
 
 #    Nevent_h = files.Ana.Get('nEvents')
 #    Nevent += Nevent_h.GetBinContent(1)
-
-    SumW_h = files.Ana.Get('sumWeights')
-    SumW += SumW_h.GetBinContent(1)
 
 print 'Total number of events: ' + str(chain.GetEntries())
 print "Total Nevent = "+str(SumW)

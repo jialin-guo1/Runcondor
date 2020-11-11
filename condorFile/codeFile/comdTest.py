@@ -9,7 +9,9 @@ args = parser.parse_args()
 
 import ROOT
 chain = ROOT.TChain(args.ttree)
-chain.Add("root://cms-xrd-global.cern.ch/"+args.inputfiles+"/*.root")
+dataset = "root://cms-xrd-global.cern.ch/"+args.inputfiles+"/*.root"
+print dataset
+chain.Add(dataset)
 print 'Total number of events: ' + str(chain.GetEntries())
 
 def ifROOT(line):
@@ -22,6 +24,7 @@ for line in outputfile:
     if(ifROOT(line)==False):
         continue
     line=line.strip('\n')
-    files = ROOT.TFile("root://cms-xrd-global.cern.ch/"+line)
+    filename = "root://cms-xrd-global.cern.ch/"+str(line)
+    files = ROOT.TFile(filename)
     print "root://cms-xrd-global.cern.ch/"+line
 #    print "filename="+str(line.strip('\n'))

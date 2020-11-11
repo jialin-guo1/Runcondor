@@ -40,6 +40,7 @@ for line in outputfile:
 print 'Total number of events: ' + str(chain.GetEntries())
 print "Total Nevent = "+str(Nevent)
 
+from array import array
 weight = array('f',[0.])
 passedEvents = ROOT.TTree("passedEvents","passedEvents")
 passedEvents.Branch("weight",weight,"weight/F")

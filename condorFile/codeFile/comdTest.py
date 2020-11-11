@@ -16,4 +16,6 @@ outputfile = os.popen('xrdfs root://cmsio5.rc.ufl.edu/ ls  '+str(args.inputfiles
 for line in outputfile:
     if(ifROOT(line)==False):
         continue
+    print "root://cms-xrd-global.cern.ch/"+args.inputfiles+"/*.root"
+    print "root://cms-xrd-global.cern.ch/"+line
 #    print "filename="+str(line.strip('\n'))

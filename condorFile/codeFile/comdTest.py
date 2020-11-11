@@ -35,15 +35,19 @@ for line in outputfile:
     files = ROOT.TFile.Open(filename)
     Nevent_h = files.Ana.Get('nEvents')
     Nevent += Nevent_h.GetBinContent(1)
-    Nevent_H = ROOT.TH1D()
-    Nevent_H.Sumw2()
-    Nevent_H.Add(Nevent_h)
-    Nevent_H.Write(args.outputfile)
     print "root://cms-xrd-global.cern.ch/"+line
 
 print 'Total number of events: ' + str(chain.GetEntries())
-print Nevent_h.GetBinContent(1)
 print "Total Nevent = "+str(Nevent)
+
+weight = array('f',[0.])
+passedEvents = ROOT.TTree("passedEvents","passedEvents")
+passedEvents.Branch("weight",weight,"weight/F")
+for ievent,event in enumerate(chain):
+    if(not event.passedTrig): continue
+    if(not event.passedFullSelection): continue
+    weight[0] = event.eventWeight/Nevent
+    passedEvents.Fill()
 
 file_out.Write()
 file_out.Close()

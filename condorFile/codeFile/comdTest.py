@@ -10,7 +10,6 @@ args = parser.parse_args()
 
 
 import ROOT
-file_out = ROOT.TFile(args.outputfile, 'recreate')
 chain = ROOT.TChain(args.ttree)
 #dataset = "root://cms-xrd-global.cern.ch/"+args.inputfiles+"/*.root"
 #print dataset
@@ -42,6 +41,7 @@ print "Total Nevent = "+str(Nevent)
 
 from array import array
 weight = array('f',[0.])
+file_out = ROOT.TFile(args.outputfile, 'recreate')
 passedEvents = ROOT.TTree("passedEvents","passedEvents")
 passedEvents.Branch("weight",weight,"weight/F")
 for ievent,event in enumerate(chain):

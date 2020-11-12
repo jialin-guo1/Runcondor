@@ -103,6 +103,11 @@ H = array('f',[0.])
 H_FSR = array('f',[0.])
 EMCweight = array('f',[0.0])
 weight = array('f',[0.])
+k_gg = array('f',[0.])
+k_qq_qcd_dPhi = array('f',[0.])
+k_qq_qcd_M = array('f',[0.])
+k_qq_ewk = array('f',[0.])
+k_qq_qcd_pt = array('f',[0.])
 
 
 #Output file and any Branch we want
@@ -152,6 +157,11 @@ passedEvents.Branch("H",H,"H/F")
 passedEvents.Branch("H_FSR",H_FSR,"H_FSR/F")
 passedEvents.Branch("weight",weight,"weight/F")
 passedEvents.Branch("EMCweight",EMCweight,"EMCweight/F")
+passedEvents.Branch("k_gg",k_gg,"k_gg/F")
+passedEvents.Branch("k_qq_qcd_dPhi",k_qq_qcd_dPhi,"k_qq_qcd_dPhi/F")
+passedEvents.Branch("k_qq_qcd_M",k_qq_qcd_M,"k_qq_qcd_M/F")
+passedEvents.Branch("k_qq_ewk",k_qq_ewk,"k_qq_ewk/F")
+passedEvents.Branch("k_qq_qcd_pt",k_qq_qcd_pt,"k_qq_qcd_pt/F")
 
 #Loop over all the events in the input ntuple
 for ievent,event in enumerate(chain):
@@ -164,6 +174,11 @@ for ievent,event in enumerate(chain):
     subledZ_mass[0] = event.massZ2
     weight[0] = event.eventWeight/SumW
     EMCweight[0] = event.dataMCWeight/SumW
+    k_gg[0] = event.k_ggZZ
+    k_qq_qcd_dPhi[0] = event.k_qqZZ_qcd_dPhi
+    k_qq_qcd_M[0] = event.k_qqZZ_qcd_M
+    k_qq_ewk[0] = event.k_qqZZ_ewk
+    k_qq_qcd_pt[0] = event.k_qqZZ_qcd_Pt
 
 
     Nlep = event.lep_pt.size()

@@ -14,3 +14,19 @@ for i in range(1,10):
     chain.Add(filename)
 
 print 'Total number of events: ' + str(chain.GetEntries())
+
+import os
+
+def ifROOT(line):
+    line=line.strip('\n')
+    if line[-4:] != "root":
+        return False
+
+nfile = 0
+
+outputfile = os.popen('xrdfs root://cmsio5.rc.ufl.edu/ ls  '+str(args.inputfiles))
+for line in outputfile:
+    if(ifROOT(line)==False):
+        continue
+    nfile +=1
+print nfile

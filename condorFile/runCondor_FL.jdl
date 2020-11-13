@@ -1,14 +1,14 @@
 +JobFlavour = "nextweek"
-Executable = runCondor.sh
+Executable = runCondor_CN.sh
 Universe = vanilla
-Log = out_log/runCondor_$(Cluster)_$(Process).log
-Output = out_log/runCondor_$(Cluster)_$(Process).out
-Error = out_log/runCondor_$(Cluster)_$(Process).err
+Log = out_log/runCN/runCondor_$(Cluster)_$(Process).log
+Output = out_log/runCN/runCondor_$(Cluster)_$(Process).out
+Error = out_log/runCN/runCondor_$(Cluster)_$(Process).err
 should_transfer_files   = YES
 when_to_transfer_output = ON_EXIT
-transfer_input_files  = codeFile ,runCondor.sh, datasetfile
+transfer_input_files  = codeFile ,runCondor_CN.sh, datasetfile
 x509userproxy = $ENV(X509_USER_PROXY)
-Arguments = -i datasetfile/dataset_single_2016_FLdoubleEgMu.txt -o dataset_single_2016_FLdoubleEgMu.root
+Arguments = -i /store/user/ferrico/2018data/UFHZZAnalysisRun2/myTask_MC/GluGluToContinToZZTo4mu_13TeV_MCFM701_pythia8/crab_GluGluToContinToZZTo4mu_13TeV_MCFM701_pythia8_RunIISummer16MiniAODv2/191202_133117/0000 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/MC3/GluGluToContinToZZTo4mu_FL02.root
 Queue
-Arguments = -i datasetfile/dataset_single_2016_FLMuEle.txt -o dataset_single_2016_FLMuEle.root
+Arguments = -i /store/user/ferrico/2018data/UFHZZAnalysisRun2/myTask_MC/ZZTo4L_13TeV-amcatnloFXFX-pythia8/crab_ZZTo4L_13TeV-amcatnloFXFX-pythia8_RunIISummer16MiniAODv2/191202_132704/0000 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/MC3/ZZTo4L_FL02.root
 Queue

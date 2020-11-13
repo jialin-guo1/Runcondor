@@ -1,0 +1,24 @@
++JobFlavour = "nextweek"
+Executable = runCondor_ZZ4l.sh
+Universe = vanilla
+Log = out_log/runCondor_$(Cluster)_$(Process).log
+Output = out_log/runCondor_$(Cluster)_$(Process).out
+Error = out_log/runCondor_$(Cluster)_$(Process).err
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files  = codeFile, runCondor_ZZ4l.sh, datasetfile
+x509userproxy = $ENV(X509_USER_PROXY)
+Arguments = -s 1 -e 51 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/MC3/ZZTo4L_1to50.root
+Queue
+Arguments = -s 51 -e 101  -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/MC3/ZZTo4L_51to100.root
+Queue
+Arguments = -s 101 -e 151  -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/MC3/ZZTo4L_100to150.root
+Queue
+Arguments = -s 151 -e 201  -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/MC3/ZZTo4L_151to200.root
+Queue
+Arguments = -s 201 -e 251  -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/MC3/ZZTo4L_201to250.root
+Queue
+Arguments = -s 251 -e 301  -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/MC3/ZZTo4L_251to300.root
+Queue
+Arguments = -s 301 -e 323  -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/MC3/ZZTo4L_301to322.root
+Queue

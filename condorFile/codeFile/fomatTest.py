@@ -21,6 +21,7 @@ for i in range(args.startrun,args.endrun):
 
 print 'Total number of events: ' + str(chain.GetEntries())
 
+from array import array
 #variables
 lep1_pt = array('f',[0.])
 lep1_eta = array('f',[0.])

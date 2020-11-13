@@ -28,5 +28,6 @@ outputfile = os.popen('xrdfs root://cmsio5.rc.ufl.edu/ ls  '+str(args.inputfiles
 for line in outputfile:
     if(ifROOT(line)==False):
         continue
+    print line
     nfile +=1
 print nfile

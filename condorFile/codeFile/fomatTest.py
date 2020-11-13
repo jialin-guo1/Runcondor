@@ -8,7 +8,7 @@ args = parser.parse_args()
 import ROOT
 chain = ROOT.TChain(args.ttree)
 
-for i in range(10):
+for i in range(1,10):
     filename = "root://cms-xrd-global.cern.ch//store/user/ferrico/2018data/UFHZZAnalysisRun2/myTask_MC/ZZTo4L_13TeV_powheg_pythia8_ext1/crab_ZZTo4L_13TeV_powheg_pythia8_ext1_RunIISummer16MiniAODv2/191202_132458/0000/ZZTo4L_13TeV_powheg_pythia8_ext1_RunIISummer16MiniAODv2_{0:s}.root".format(str(i))
     print filename
     chain.Add(filename)

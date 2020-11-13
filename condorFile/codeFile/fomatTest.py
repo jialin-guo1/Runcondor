@@ -2,7 +2,7 @@ import argparse
 parser = argparse.ArgumentParser(description="A simple ttree plotter")
 parser.add_argument("-t", "--ttree", dest="ttree", default="Ana/passedEvents", help="TTree Name")
 parser.add_argument("-o", "--outputfile", dest="outputfile", default="plots.root", help="Output file containing plots")
-parser.add_argument("-s","--startrun",dest="statrun",type=int,help="star number of run")
+parser.add_argument("-s","--startrun",dest="startrun",type=int,help="star number of run")
 parser.add_argument("-e","--endrun",dest="endrun",type=int,help="end number of run")
 args = parser.parse_args()
 

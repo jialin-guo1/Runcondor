@@ -45,7 +45,7 @@ for line in outputfile0:
     filename = "root://cms-xrd-global.cern.ch/"+str(line)
     chain.Add(filename)
     print "chain "+filename+" file!"
-    files = ROOT.TFile.Open(filename0)
+    files = ROOT.TFile.Open(filename)
     SumW_h = files.Ana.Get('sumWeights')
     SumW += SumW_h.GetBinContent(1)
 

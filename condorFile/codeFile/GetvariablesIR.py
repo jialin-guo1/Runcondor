@@ -52,9 +52,6 @@ for line in outputfile0:
     SumW_h = files.Ana.Get('sumWeights')
     SumW += SumW_h.GetBinContent(1)
 
-    Nevent_h = files.Ana.Get('nEvents')
-    Nevent += Nevent_h.GetBinContent(1)
-
 print 'Total number of events: ' + str(chain.GetEntries())
 print "Total Nevent = "+str(SumW)
 #    SumWPU_h = files.Ana.Get('sumWeightsPU')

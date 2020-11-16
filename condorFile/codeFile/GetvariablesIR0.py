@@ -109,6 +109,7 @@ k_qq_qcd_M = array('f',[0.])
 k_qq_ewk = array('f',[0.])
 k_qq_qcd_pt = array('f',[0.])
 cross = array('f',[0.])
+Cat = array('l',[0])
 
 
 #Output file and any Branch we want
@@ -164,6 +165,7 @@ passedEvents.Branch("k_qq_qcd_M",k_qq_qcd_M,"k_qq_qcd_M/F")
 passedEvents.Branch("k_qq_ewk",k_qq_ewk,"k_qq_ewk/F")
 passedEvents.Branch("k_qq_qcd_pt",k_qq_qcd_pt,"k_qq_qcd_pt/F")
 passedEvents.Branch("cross",cross,"cross/F")
+passedEvents.Branch("Cat",Cat,"Cat/s")
 
 #Loop over all the events in the input ntuple
 for ievent,event in enumerate(chain):
@@ -182,6 +184,7 @@ for ievent,event in enumerate(chain):
     k_qq_ewk[0] = event.k_qqZZ_ewk
     k_qq_qcd_pt[0] = event.k_qqZZ_qcd_Pt
     cross[0] = event.crossSection
+    Cat[0] = event.EventCat
 
 
     Nlep = event.lep_pt.size()

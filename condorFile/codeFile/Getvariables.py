@@ -59,6 +59,7 @@ h_pt = array('f',[0.])
 h_eta = array('f',[0.])
 h_phi = array('f',[0.])
 h_mass = array('f',[0.])
+Cat = array('l',[0])
 
 #Output file and any Branch we want
 file_out = ROOT.TFile(args.outputfile, 'recreate')
@@ -99,6 +100,7 @@ passedEvents.Branch("h_pt",h_pt,"h_pt/F")
 passedEvents.Branch("h_eta",h_eta,"h_eta/F")
 passedEvents.Branch("h_phi",h_phi,"h_phi/F")
 passedEvents.Branch("h_mass",h_mass,"h_mass/F")
+passedEvents.Branch("Cat",Cat,"Cat/s")
 
 #Loop over all the events in the input ntuple
 for ievent,event in enumerate(chain):

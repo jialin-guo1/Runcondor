@@ -38,19 +38,19 @@ for line in outputfile:
     SumW_h = files.Ana.Get('sumWeights')
     SumW += SumW_h.GetBinContent(1)
 
-#print 'Total number of events before: ' + str(chain.GetEntries())
-#print "Total Nevent before = "+str(SumW)
+print 'Total number of events before: ' + str(chain.GetEntries())
+print "Total Nevent before = "+str(SumW)
 
-#for line in outputfile0:
-#    if(ifROOT(line)==False):
-#        continue
-#    line=line.strip('\n')
-#    filename = "root://cms-xrd-global.cern.ch/"+str(line)
-#    chain.Add(filename)
-#    print "chain "+filename+" file!"
-#    files = ROOT.TFile.Open(filename)
-#    SumW_h = files.Ana.Get('sumWeights')
-#    SumW += SumW_h.GetBinContent(1)
+for line in outputfile0:
+    if(ifROOT(line)==False):
+        continue
+    line=line.strip('\n')
+    filename = "root://cms-xrd-global.cern.ch/"+str(line)
+    chain.Add(filename)
+    print "chain "+filename+" file!"
+    files = ROOT.TFile.Open(filename)
+    SumW_h = files.Ana.Get('sumWeights')
+    SumW += SumW_h.GetBinContent(1)
 
 print 'Total number of events: ' + str(chain.GetEntries())
 print "Total Nevent = "+str(SumW)

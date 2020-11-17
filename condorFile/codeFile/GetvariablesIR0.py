@@ -110,6 +110,14 @@ k_qq_ewk = array('f',[0.])
 k_qq_qcd_pt = array('f',[0.])
 cross = array('f',[0.])
 Cat = array('l',[0])
+#ZX
+lep_RelIsoNoFSR1 = array('f',[0.])
+lep_RelIsoNoFSR2 = array('f',[0.])
+lep_RelIsoNoFSR3 = array('f',[0.])
+lep_RelIsoNoFSR4 = array('f',[0.])
+passedZXCRSelection = array('o',[0])
+nZXCRFailedLeptons = array('l',[0])
+
 
 
 #Output file and any Branch we want
@@ -166,11 +174,26 @@ passedEvents.Branch("k_qq_ewk",k_qq_ewk,"k_qq_ewk/F")
 passedEvents.Branch("k_qq_qcd_pt",k_qq_qcd_pt,"k_qq_qcd_pt/F")
 passedEvents.Branch("cross",cross,"cross/F")
 passedEvents.Branch("Cat",Cat,"Cat/s")
+passedEvents.Branch("lep_RelIsoNoFSR1",lep_RelIsoNoFSR1,"lep_RelIsoNoFSR1/F")
+passedEvents.Branch("lep_RelIsoNoFSR2",lep_RelIsoNoFSR2,"lep_RelIsoNoFSR1/F")
+passedEvents.Branch("lep_RelIsoNoFSR3",lep_RelIsoNoFSR3,"lep_RelIsoNoFSR1/F")
+passedEvents.Branch("lep_RelIsoNoFSR4",lep_RelIsoNoFSR4,"lep_RelIsoNoFSR1/F")
+passedEvents.Branch("passedZXCRSelection",passedZXCRSelection,"passedZXCRSelection/O")
+passedEvents.Branch("nZXCRFailedLeptons",nZXCRFailedLeptons,"nZXCRFailedLeptons/s")
 
 #Loop over all the events in the input ntuple
 for ievent,event in enumerate(chain):
+    passedZXCRSelection[0] = event.passedZXCRSelection
+    nZXCRFailedLeptons[0] = event.nZXCRFailedLeptons
     if(not event.passedTrig): continue
     if(not event.passedFullSelection): continue
+
+    for i in range(event.lep_RelIsoNoFSR.size()):
+        lep_RelIsoNoFSR1[0] = event.lep_RelIsoNoFSR[event.lep_Hindex[0]]
+        lep_RelIsoNoFSR2[0] = event.lep_RelIsoNoFSR[event.lep_Hindex[1]]
+        lep_RelIsoNoFSR3[0] = event.lep_RelIsoNoFSR[event.lep_Hindex[2]]
+        lep_RelIsoNoFSR4[0] = event.lep_RelIsoNoFSR[event.lep_Hindex[3]]
+
 
     lep_4mass[0] = event.mass4l
     lepnoFSR_4mass[0] = event.mass4l_noFSR

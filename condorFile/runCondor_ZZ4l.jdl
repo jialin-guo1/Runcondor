@@ -8,5 +8,5 @@ should_transfer_files   = YES
 when_to_transfer_output = ON_EXIT
 transfer_input_files  = codeFile, runCondor_ZZ4l.sh, datasetfile
 x509userproxy = $ENV(X509_USER_PROXY)
-Arguments = -i /store/user/ferrico/2018data/UFHZZAnalysisRun2/myTask_MC/ZZTo4L_13TeV-amcatnloFXFX-pythia8/crab_ZZTo4L_13TeV-amcatnloFXFX-pythia8_RunIISummer16MiniAODv2/191202_132704/0000 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/MC1/ZZTo4L_FLALL.root
+Arguments = -i /store/user/ferrico/2018data/UFHZZAnalysisRun2/myTask_MC/ZZTo4L_13TeV-amcatnloFXFX-pythia8/crab_ZZTo4L_13TeV-amcatnloFXFX-pythia8_RunIISummer16MiniAODv2/191202_132704/0000 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/MC/ZZTo4L_FLALL.root
 Queue

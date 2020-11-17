@@ -115,7 +115,7 @@ lep_RelIsoNoFSR1 = array('f',[0.])
 lep_RelIsoNoFSR2 = array('f',[0.])
 lep_RelIsoNoFSR3 = array('f',[0.])
 lep_RelIsoNoFSR4 = array('f',[0.])
-passedZXCRSelection = array('o',[0])
+passedZXCRSelection = array('l',[0])
 nZXCRFailedLeptons = array('l',[0])
 
 

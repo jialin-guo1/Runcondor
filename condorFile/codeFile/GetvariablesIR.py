@@ -25,7 +25,7 @@ def ifROOT(line):
         return False
 
 outputfile = os.popen('xrdfs root://cmsio5.rc.ufl.edu/ ls  '+str(args.inputfiles))
-outputfile0 = os.popen('xrdfs root://cmsio5.rc.ufl.edu/ ls /store/user/ferrico/2018data/UFHZZAnalysisRun2/myTask_MC/ZZTo4L_13TeV_powheg_pythia8_ext1/crab_ZZTo4L_13TeV_powheg_pythia8_ext1_RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191119_094706/0000')
+#outputfile0 = os.popen('xrdfs root://cmsio5.rc.ufl.edu/ ls /store/user/ferrico/2018data/UFHZZAnalysisRun2/myTask_MC/ZZTo4L_13TeV_powheg_pythia8_ext1/crab_ZZTo4L_13TeV_powheg_pythia8_ext1_RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3-v2/191119_094706/0000')
 
 for line in outputfile:
     if(ifROOT(line)==False):
@@ -38,18 +38,18 @@ for line in outputfile:
     SumW_h = files.Ana.Get('sumWeights')
     SumW += SumW_h.GetBinContent(1)
 
-print 'Total number of events before: ' + str(chain.GetEntries())
-print "Total Nevent before = "+str(SumW)
+#print 'Total number of events before: ' + str(chain.GetEntries())
+#print "Total Nevent before = "+str(SumW)
 
-for line in outputfile0:
-    if(ifROOT(line)==False):
-        continue
-    line=line.strip('\n')
-    filename = "root://cms-xrd-global.cern.ch/"+str(line)
-    chain.Add(filename)
-    files = ROOT.TFile.Open(filename)
-    SumW_h = files.Ana.Get('sumWeights')
-    SumW += SumW_h.GetBinContent(1)
+#for line in outputfile0:
+#    if(ifROOT(line)==False):
+#        continue
+#    line=line.strip('\n')
+#    filename = "root://cms-xrd-global.cern.ch/"+str(line)
+#    chain.Add(filename)
+#    files = ROOT.TFile.Open(filename)
+#    SumW_h = files.Ana.Get('sumWeights')
+#    SumW += SumW_h.GetBinContent(1)
 
 print 'Total number of events: ' + str(chain.GetEntries())
 print "Total Nevent = "+str(SumW)
@@ -125,7 +125,7 @@ lep_RelIsoNoFSR1 = array('f',[0.])
 lep_RelIsoNoFSR2 = array('f',[0.])
 lep_RelIsoNoFSR3 = array('f',[0.])
 lep_RelIsoNoFSR4 = array('f',[0.])
-passedZXCRSelection = array('o',[0])
+passedZXCRSelection = array('l',[0])
 nZXCRFailedLeptons = array('l',[0])
 
 

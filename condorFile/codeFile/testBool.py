@@ -17,8 +17,8 @@ print("get file " + str(args.inputfiles))
 chain = ROOT.TChain(args.ttree)
 chain.Add(args.inputfiles)
 
-passedZXCRSelection = array('i',[0])
-nZXCRFailedLeptons = array('i',[0])
+passedZXCRSelection = array('i',[-90])
+nZXCRFailedLeptons = array('i',[-90])
 
 file_out = ROOT.TFile(args.outputfile, 'recreate')
 passedEvents = ROOT.TTree("passedEvents","passedEvents")
@@ -27,12 +27,15 @@ passedEvents.Branch("nZXCRFailedLeptons",nZXCRFailedLeptons,"nZXCRFailedLeptons/
 
 for ievent,event in enumerate(chain):
     if ievent == 50000: break
-    if(not event.passedTrig): continue
-    if(not event.passedZXCRSelection): continue
     passedZXCRSelection[0] = event.passedZXCRSelection
     nZXCRFailedLeptons[0] = event.nZXCRFailedLeptons
-    print "passedZXCRSelection = " + str(event.passedZXCRSelection)
-    print "nZXCRFailedLeptons = " + str(event.nZXCRFailedLeptons)
+    if(event.passedTrig):
+        if(event.passedFullSelection):
+            for i in range(event.lep_RelIsoNoFSR.size()):
+                print "passedTrig = " + str(event.passedTrig)
+                print "passedFullSelection = " + str(event.passedFullSelection)
+
+
 
     passedEvents.Fill()
 

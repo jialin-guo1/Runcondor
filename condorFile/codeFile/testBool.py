@@ -27,7 +27,7 @@ passedEvents.Branch("nZXCRFailedLeptons",nZXCRFailedLeptons,"nZXCRFailedLeptons/
 
 for ievent,event in enumerate(chain):
     if(not event.passedTrig): continue
-    if(not event.passedFullSelection): continue
+    if(not event.passedZXCRSelection): continue
     passedZXCRSelection[0] = event.passedZXCRSelection
     nZXCRFailedLeptons[0] = event.nZXCRFailedLeptons
     print "passedZXCRSelection = " + str(event.passedZXCRSelection)

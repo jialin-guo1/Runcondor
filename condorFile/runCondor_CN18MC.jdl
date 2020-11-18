@@ -1,0 +1,34 @@
++JobFlavour = "nextweek"
+Executable = runCondor.sh
+Universe = vanilla
+Log = out_log/runCondor_$(Cluster)_$(Process).log
+Output = out_log/runCondor_$(Cluster)_$(Process).out
+Error = out_log/runCondor_$(Cluster)_$(Process).err
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files  = codeFile, runCondor.sh, datasetfile
+x509userproxy = $ENV(X509_USER_PROXY)
+Arguments = -i /store/user/chenguan/GluGluHToZZTo4L_M125_13TeV_powheg2_JHUGenV7011_pythia8/crab_2018GGH_125/200510_154152/0000 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2017/MC/GluGluHToZZTo4L_CN01.root
+Queue
+Arguments = -i /store/user/chenguan/GluGluToContinToZZTo2e2tau_13TeV_MCFM701_pythia8/crab_ggZZ_2e2tau_2018/200515_082744/0000 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2018/MC/GluGluToContinToZZTo2e2tau_CN01.root
+Queue
+Arguments = -i /store/user/chenguan/GluGluToContinToZZTo2mu2tau_13TeV_MCFM701_pythia8/crab_ggZZ_2mu2tau_2018/200515_083002/0000 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2018/MC/GluGluToContinToZZTo2mu2tau_CN01.root
+Queue
+Arguments = -i /store/user/chenguan/GluGluToContinToZZTo4e_13TeV_MCFM701_pythia8/crab_ggZZ_4e_2018/200515_081848/0000 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2018/MC/GluGluToContinToZZTo4e_CN01.root
+Queue
+Arguments = -i /store/user/chenguan/GluGluToContinToZZTo4mu_13TeV_MCFM701_pythia8/crab_ggZZ_4mu_2018/200515_082102/0000 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2018/MC/GluGluToContinToZZTo4mu_CN01.root
+Queue
+Arguments = -i /store/user/chenguan/GluGluToContinToZZTo4tau_13TeV_MCFM701_pythia8/crab_ggZZ_4tau_2018/200515_082314/0000 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2018/MC/GluGluToContinToZZTo4tau_CN01.root
+Queue
+Arguments = -i /store/user/chenguan/ttH_HToZZ_4LFilter_M125_13TeV_powheg2_JHUGenV7011_pythia8/crab_2018ttH_125/200515_001404/0000 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2018/MC/ttH_HToZZ_CN01.root
+Queue
+Arguments = -i /store/user/chenguan/VBF_HToZZTo4L_M125_13TeV_powheg2_JHUGenV7011_pythia8/crab_2018VBF_125/200510_155950/0000 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2018/MC/VBF_HToZZTo4L_CN01.root
+Queue
+Arguments = -i /store/user/chenguan/WminusH_HToZZTo4L_M125_13TeV_powheg2-minlo-HWJ_JHUGenV7011_pythia8/crab_2018WminusH_125/200514_183400/0000 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2018/MC/WminusH_HToZZTo4L_CN01.root
+Queue
+Arguments = -i /store/user/chenguan/WplusH_HToZZTo4L_M125_13TeV_powheg2-minlo-HWJ_JHUGenV7011_pythia8/crab_2018WplusH_125/200514_113734/0000 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2018/MC/WplusH_HToZZTo4L_CN01.root
+Queue
+Arguments = -i /store/user/chenguan/ZH_HToZZ_4LFilter_M125_13TeV_powheg2-minlo-HZJ_JHUGenV7011_pythia8/crab_2018ZH_125/200514_231332/0000 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2018/MC/ZH_HToZZ_4L_CN01.root
+Queue
+Arguments = -i /store/user/chenguan/ZZTo4L_13TeV_powheg_pythia8_TuneCP5/crab_qqZZ_2018/200515_081634/0000 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2018/MC/ZZTo4L_CN01.root
+Queue

@@ -32,7 +32,6 @@ passedEvents.Branch("passedTrig",passedTrig,"passedTrig/I")
 passedEvents.Branch("H_FSR",H_FSR,"H_FSR/F")
 
 for ievent,event in enumerate(chain):
-    if ievent == 50000: break
     passedZXCRSelection[0] = event.passedZXCRSelection
     nZXCRFailedLeptons[0] = event.nZXCRFailedLeptons
     passedFullSelection[0] = event.passedFullSelection

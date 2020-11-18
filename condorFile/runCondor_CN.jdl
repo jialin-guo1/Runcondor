@@ -8,71 +8,7 @@ should_transfer_files   = YES
 when_to_transfer_output = ON_EXIT
 transfer_input_files  = codeFile, runCondor_CN.sh, datasetfile
 x509userproxy = $ENV(X509_USER_PROXY)
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SinleElectron_Run2016B_2lskim/200609_154650/0000/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN0.root
+Arguments = -i /store/user/chenguan/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/crab_DY_2016_NLO_vtx_20200907/200907_141608/0000 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/MC/DYJetsToLL_CN01.root
 Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SinleElectron_Run2016B_2lskim/200609_154650/0001/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN1.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SinleElectron_Run2016B_2lskim/200609_154650/0003/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN2.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SinleElectron_Run2016B_2lskim/200609_154650/0002/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN3.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SinleElectron_Run2016B_2lskim/200609_154650/0004/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN4.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SingleElectron_Run2016C_2lskim/200609_154917/0000/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN5.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SingleElectron_Run2016C_2lskim/200609_154917/0001/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN6.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SingleElectron_Run2016D_2lskim/200609_155159/0000/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN7.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SingleElectron_Run2016D_2lskim/200609_155159/0001/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN8.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SingleElectron_Run2016D_2lskim/200609_155159/0002/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN9.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SingleElectron_Run2016D_2lskim/200609_155159/0003/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN10.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SingleElectron_Run2016E_2lskim/200609_155450/0000/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN11.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SingleElectron_Run2016E_2lskim/200609_155450/0001/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN12.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SingleElectron_Run2016E_2lskim/200609_155450/0002/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN13.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SingleElectron_Run2016F_2lskim/200609_155742/0000/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN14.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SingleElectron_Run2016F_2lskim/200609_155742/0001/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN15.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SingleElectron_Run2016G_2lskim/200609_160034/0000/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN16.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SingleElectron_Run2016G_2lskim/200609_160034/0001/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN17.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SingleElectron_Run2016G_2lskim/200609_160034/0002/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN18.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SingleElectron_Run2016G_2lskim/200609_160034/0003/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN19.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SingleElectron_Run2016H_2lskim/200609_160328/0000/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN20.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SingleElectron_Run2016H_2lskim/200609_160328/0001/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN21.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleElectron/crab_SingleElectron_Run2016H_2lskim/200609_160328/0002/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN22.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleMuon/crab_SingleMuon_Run2016B_20200803/200803_192724/0000/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN23.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleMuon/crab_SingleMuon_Run2016B_20200803/200803_192724/0001/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN24.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleMuon/crab_SingleMuon_Run2016C_20200803/200803_193013/0000/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN25.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleMuon/crab_SingleMuon_Run2016D_20200803/200803_193245/0000/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN26.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleMuon/crab_SingleMuon_Run2016E_20200803/200803_193514/0000/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN27.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleMuon/crab_SingleMuon_Run2016F_20200803/200803_193740/0000/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN28.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleMuon/crab_SingleMuon_Run2016F_2lskim/200428_084823/0001/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN29.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleMuon/crab_SingleMuon_Run2016G_20200803/200803_194005/0000/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN30.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleMuon/crab_SingleMuon_Run2016G_20200803/200803_194005/0001/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN31.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleMuon/crab_SingleMuon_Run2016H_20200803/200803_194232/0000/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN32.root
-Queue
-Arguments = -i root://cms-xrd-global.cern.ch//store/user/chenguan/SingleMuon/crab_SingleMuon_Run2016H_20200803/200803_194232/0001/*.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/dataset_signal_2016_CN33.root
+Arguments = -i /store/user/chenguan/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/crab_DY_2016_NLO_vtx_20200907/200907_141608/0001 -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/MC/DYJetsToLL_CN02.root
 Queue

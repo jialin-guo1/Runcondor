@@ -15,12 +15,13 @@ args = parser.parse_args()
 print("get file " + str(args.inputfiles))
 #input Ntuple
 chain = ROOT.TChain(args.ttree)
-f = open(args.inputfiles)
-for line in f:
-    dataset = line.strip('\n')
-    print("found dataset " + str(dataset))
-    chain.Add(dataset)
-print 'Total number of events: ' + str(chain.GetEntries())
+chain.Add(args.inputfiles)
+#f = open(args.inputfiles)
+#for line in f:
+#    dataset = line.strip('\n')
+#    print("found dataset " + str(dataset))
+#    chain.Add(dataset)
+#print 'Total number of events: ' + str(chain.GetEntries())
 
 #variables
 lep1_pt = array('f',[0.])
@@ -55,11 +56,34 @@ lep4FSR_pt = array('f',[0.])
 lep4FSR_eta = array('f',[0.])
 lep4FSR_phi = array('f',[0.])
 lep4FSR_mass = array('f',[0.])
+lep_4mass = array('f',[0.])
+lepnoFSR_4mass = array('f',[0])
+ledZ_mass = array('f',[0])
+subledZ_mass  = array('f',[0])
 h_pt = array('f',[0.])
 h_eta = array('f',[0.])
 h_phi = array('f',[0.])
 h_mass = array('f',[0.])
+H = array('f',[0.])
+H_FSR = array('f',[0.])
+EMCweight = array('f',[0.0])
+weight = array('f',[0.])
+k_gg = array('f',[0.])
+k_qq_qcd_dPhi = array('f',[0.])
+k_qq_qcd_M = array('f',[0.])
+k_qq_ewk = array('f',[0.])
+k_qq_qcd_pt = array('f',[0.])
+cross = array('f',[0.])
 Cat = array('l',[0])
+#ZX
+lep_RelIsoNoFSR1 = array('f',[0.])
+lep_RelIsoNoFSR2 = array('f',[0.])
+lep_RelIsoNoFSR3 = array('f',[0.])
+lep_RelIsoNoFSR4 = array('f',[0.])
+passedZXCRSelection = array('l',[0])
+nZXCRFailedLeptons = array('l',[0])
+
+
 
 #Output file and any Branch we want
 file_out = ROOT.TFile(args.outputfile, 'recreate')
@@ -100,12 +124,57 @@ passedEvents.Branch("h_pt",h_pt,"h_pt/F")
 passedEvents.Branch("h_eta",h_eta,"h_eta/F")
 passedEvents.Branch("h_phi",h_phi,"h_phi/F")
 passedEvents.Branch("h_mass",h_mass,"h_mass/F")
+passedEvents.Branch("lep_4mass",lep_4mass,"lep_4mass/F")
+passedEvents.Branch("lepnoFSR_4mass",lepnoFSR_4mass,"lepnoFSR_4mass/F")
+passedEvents.Branch("ledZ_mass",ledZ_mass,"ledZ_mass/F")
+passedEvents.Branch("subledZ_mass",subledZ_mass,"subledZ_mass/F")
+passedEvents.Branch("H",H,"H/F")
+passedEvents.Branch("H_FSR",H_FSR,"H_FSR/F")
+passedEvents.Branch("weight",weight,"weight/F")
+passedEvents.Branch("EMCweight",EMCweight,"EMCweight/F")
+passedEvents.Branch("k_gg",k_gg,"k_gg/F")
+passedEvents.Branch("k_qq_qcd_dPhi",k_qq_qcd_dPhi,"k_qq_qcd_dPhi/F")
+passedEvents.Branch("k_qq_qcd_M",k_qq_qcd_M,"k_qq_qcd_M/F")
+passedEvents.Branch("k_qq_ewk",k_qq_ewk,"k_qq_ewk/F")
+passedEvents.Branch("k_qq_qcd_pt",k_qq_qcd_pt,"k_qq_qcd_pt/F")
+passedEvents.Branch("cross",cross,"cross/F")
 passedEvents.Branch("Cat",Cat,"Cat/s")
+passedEvents.Branch("lep_RelIsoNoFSR1",lep_RelIsoNoFSR1,"lep_RelIsoNoFSR1/F")
+passedEvents.Branch("lep_RelIsoNoFSR2",lep_RelIsoNoFSR2,"lep_RelIsoNoFSR1/F")
+passedEvents.Branch("lep_RelIsoNoFSR3",lep_RelIsoNoFSR3,"lep_RelIsoNoFSR1/F")
+passedEvents.Branch("lep_RelIsoNoFSR4",lep_RelIsoNoFSR4,"lep_RelIsoNoFSR1/F")
+passedEvents.Branch("passedZXCRSelection",passedZXCRSelection,"passedZXCRSelection/O")
+passedEvents.Branch("nZXCRFailedLeptons",nZXCRFailedLeptons,"nZXCRFailedLeptons/s")
 
 #Loop over all the events in the input ntuple
 for ievent,event in enumerate(chain):
+    passedZXCRSelection[0] = event.passedZXCRSelection
+    nZXCRFailedLeptons[0] = event.nZXCRFailedLeptons
     if(not event.passedTrig): continue
     if(not event.passedFullSelection): continue
+
+    for i in range(event.lep_RelIsoNoFSR.size()):
+        lep_RelIsoNoFSR1[0] = event.lep_RelIsoNoFSR[event.lep_Hindex[0]]
+        lep_RelIsoNoFSR2[0] = event.lep_RelIsoNoFSR[event.lep_Hindex[1]]
+        lep_RelIsoNoFSR3[0] = event.lep_RelIsoNoFSR[event.lep_Hindex[2]]
+        lep_RelIsoNoFSR4[0] = event.lep_RelIsoNoFSR[event.lep_Hindex[3]]
+
+
+    lep_4mass[0] = event.mass4l
+    lepnoFSR_4mass[0] = event.mass4l_noFSR
+    ledZ_mass[0] = event.massZ1
+    subledZ_mass[0] = event.massZ2
+    weight[0] = event.eventWeight/SumW
+    EMCweight[0] = event.dataMCWeight/SumW
+    k_gg[0] = event.k_ggZZ
+    k_qq_qcd_dPhi[0] = event.k_qqZZ_qcd_dPhi
+    k_qq_qcd_M[0] = event.k_qqZZ_qcd_M
+    k_qq_ewk[0] = event.k_qqZZ_ewk
+    k_qq_qcd_pt[0] = event.k_qqZZ_qcd_Pt
+    cross[0] = event.crossSection
+    Cat[0] = event.EventCat
+
+
     Nlep = event.lep_pt.size()
     for i in range(Nlep):
 
@@ -151,6 +220,32 @@ for ievent,event in enumerate(chain):
        lep4FSR_eta[0] = event.lepFSR_eta[event.lep_Hindex[3]]
        lep4FSR_phi[0] = event.lepFSR_phi[event.lep_Hindex[3]]
        lep4FSR_mass[0] = event.lepFSR_mass[event.lep_Hindex[3]]
+
+       l1 = ROOT.TLorentzVector()
+       l2 = ROOT.TLorentzVector()
+       l3 = ROOT.TLorentzVector()
+       l4 = ROOT.TLorentzVector()
+       l1.SetPtEtaPhiM(event.lep_pt[event.lep_Hindex[0]],event.lep_eta[event.lep_Hindex[0]],event.lep_phi[event.lep_Hindex[0]],event.lep_mass[event.lep_Hindex[0]])
+       l2.SetPtEtaPhiM(event.lep_pt[event.lep_Hindex[1]],event.lep_eta[event.lep_Hindex[1]],event.lep_phi[event.lep_Hindex[1]],event.lep_mass[event.lep_Hindex[1]])
+       l3.SetPtEtaPhiM(event.lep_pt[event.lep_Hindex[2]],event.lep_eta[event.lep_Hindex[2]],event.lep_phi[event.lep_Hindex[2]],event.lep_mass[event.lep_Hindex[2]])
+       l4.SetPtEtaPhiM(event.lep_pt[event.lep_Hindex[3]],event.lep_eta[event.lep_Hindex[3]],event.lep_phi[event.lep_Hindex[3]],event.lep_mass[event.lep_Hindex[3]])
+       H4mass = ROOT.TLorentzVector()
+       H4mass = l1+l2+l3+l4
+       H[0] = H4mass.M()
+
+       l1FSR = ROOT.TLorentzVector()
+       l2FSR = ROOT.TLorentzVector()
+       l3FSR = ROOT.TLorentzVector()
+       l4FSR = ROOT.TLorentzVector()
+       l1FSR.SetPtEtaPhiM(event.lepFSR_pt[event.lep_Hindex[0]],event.lepFSR_eta[event.lep_Hindex[0]],event.lepFSR_phi[event.lep_Hindex[0]],event.lepFSR_mass[event.lep_Hindex[0]])
+       l2FSR.SetPtEtaPhiM(event.lepFSR_pt[event.lep_Hindex[1]],event.lepFSR_eta[event.lep_Hindex[1]],event.lepFSR_phi[event.lep_Hindex[1]],event.lepFSR_mass[event.lep_Hindex[1]])
+       l3FSR.SetPtEtaPhiM(event.lepFSR_pt[event.lep_Hindex[2]],event.lepFSR_eta[event.lep_Hindex[2]],event.lepFSR_phi[event.lep_Hindex[2]],event.lepFSR_mass[event.lep_Hindex[2]])
+       l4FSR.SetPtEtaPhiM(event.lepFSR_pt[event.lep_Hindex[3]],event.lepFSR_eta[event.lep_Hindex[3]],event.lepFSR_phi[event.lep_Hindex[3]],event.lepFSR_mass[event.lep_Hindex[3]])
+       H4massFSR = ROOT.TLorentzVector()
+       H4massFSR = l1FSR+l2FSR+l3FSR+l4FSR
+       H_FSR[0] = H4massFSR.M()
+
+
 
     Hhiggs = event.H_pt.size()
     for i in range(Hhiggs):

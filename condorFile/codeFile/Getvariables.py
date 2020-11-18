@@ -24,6 +24,7 @@ chain.Add(args.inputfiles)
 #print 'Total number of events: ' + str(chain.GetEntries())
 
 #variables
+lep_id = array('i',[0])
 lep1_pt = array('f',[0.])
 lep1_eta = array('f',[0.])
 lep1_phi = array('f',[0.])
@@ -90,6 +91,7 @@ passedTrig = array('i',[0])
 #Output file and any Branch we want
 file_out = ROOT.TFile(args.outputfile, 'recreate')
 passedEvents = ROOT.TTree("passedEvents","passedEvents")
+passedEvents.Branch("lep_id",lep_id,"lep_id/I")
 passedEvents.Branch("lep1_pt",lep1_pt,"lep1_pt/F")
 passedEvents.Branch("lep1_eta",lep1_eta,"lep1_eta/F")
 passedEvents.Branch("lep1_phi",lep1_phi,"lep1_phi/F")
@@ -152,10 +154,13 @@ passedEvents.Branch("passedTrig",passedTrig,"passedTrig/I")
 
 #Loop over all the events in the input ntuple
 for ievent,event in enumerate(chain):
+
+    lep_id[0] = event.lep_id
     passedZXCRSelection[0] = event.passedZXCRSelection
     nZXCRFailedLeptons[0] = event.nZXCRFailedLeptons
     passedFullSelection[0] = event.passedFullSelection
     passedTrig[0] = event.passedTrig
+
     for i in range(event.lep_RelIsoNoFSR.size()):
         lep_RelIsoNoFSR1[0] = event.lep_RelIsoNoFSR[event.lep_Hindex[0]]
         lep_RelIsoNoFSR2[0] = event.lep_RelIsoNoFSR[event.lep_Hindex[1]]

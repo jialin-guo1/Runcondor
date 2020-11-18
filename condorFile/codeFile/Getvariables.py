@@ -164,8 +164,8 @@ for ievent,event in enumerate(chain):
     lepnoFSR_4mass[0] = event.mass4l_noFSR
     ledZ_mass[0] = event.massZ1
     subledZ_mass[0] = event.massZ2
-    weight[0] = event.eventWeight/SumW
-    EMCweight[0] = event.dataMCWeight/SumW
+    weight[0] = event.eventWeight
+    EMCweight[0] = event.dataMCWeight
     k_gg[0] = event.k_ggZZ
     k_qq_qcd_dPhi[0] = event.k_qqZZ_qcd_dPhi
     k_qq_qcd_M[0] = event.k_qqZZ_qcd_M

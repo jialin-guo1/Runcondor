@@ -21,6 +21,7 @@ passedZXCRSelection = array('i',[0])
 nZXCRFailedLeptons = array('i',[0])
 
 file_out = ROOT.TFile(args.outputfile, 'recreate')
+passedEvents = ROOT.TTree("passedEvents","passedEvents")
 passedEvents.Branch("passedZXCRSelection",passedZXCRSelection,"passedZXCRSelection/I")
 passedEvents.Branch("nZXCRFailedLeptons",nZXCRFailedLeptons,"nZXCRFailedLeptons/I")
 

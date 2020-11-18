@@ -27,8 +27,9 @@ passedEvents.Branch("nZXCRFailedLeptons",nZXCRFailedLeptons,"nZXCRFailedLeptons/
 
 for ievent,event in enumerate(chain):
     if ievent == 50000: break
-    passedZXCRSelection[0] = event.passedZXCRSelection
-    nZXCRFailedLeptons[0] = event.nZXCRFailedLeptons
+    if(event.passedZXCRSelection):
+            passedZXCRSelection[0] = event.passedZXCRSelection
+            nZXCRFailedLeptons[0] = event.nZXCRFailedLeptons
     if(event.passedTrig):
         if(event.passedFullSelection):
             for i in range(event.lep_RelIsoNoFSR.size()):

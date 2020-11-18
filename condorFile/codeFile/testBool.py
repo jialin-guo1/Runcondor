@@ -26,10 +26,12 @@ passedEvents.Branch("passedZXCRSelection",passedZXCRSelection,"passedZXCRSelecti
 passedEvents.Branch("nZXCRFailedLeptons",nZXCRFailedLeptons,"nZXCRFailedLeptons/I")
 
 for ievent,event in enumerate(chain):
+    if(not event.passedTrig): continue
+    if(not event.passedFullSelection): continue
     passedZXCRSelection[0] = event.passedZXCRSelection
     nZXCRFailedLeptons[0] = event.nZXCRFailedLeptons
-    print "passedZXCRSelection = " + str(passedZXCRSelection[0])
-    print "nZXCRFailedLeptons = " + str(nZXCRFailedLeptons[0])
+    print "passedZXCRSelection = " + str(event.passedZXCRSelection)
+    print "nZXCRFailedLeptons = " + str(event.nZXCRFailedLeptons)
 
     passedEvents.Fill()
 

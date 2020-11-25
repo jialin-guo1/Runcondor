@@ -1,0 +1,16 @@
++JobFlavour = "nextweek"
+Executable = runCondor_RunIIData.sh
+Universe = vanilla
+Log = out_log/runCondor_$(Cluster)_$(Process).log
+Output = out_log/runCondor_$(Cluster)_$(Process).out
+Error = out_log/runCondor_$(Cluster)_$(Process).err
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files  = codeFile, runCondor_RunIIData.sh, datasetfile
+x509userproxy = $ENV(X509_USER_PROXY)
+Arguments = -i /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/2016_noDuplicates.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2016/Data2016_new.root
+Queue
+Arguments = -i /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2017/2017_noDuplicates.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2017/Data2017_new.root
+Queue
+Arguments = -i /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2018/2018_noDuplicates.root -o /afs/cern.ch/work/g/guoj/XToZZ_FullRunII/Data2018/Data2018_new.root
+Queue
